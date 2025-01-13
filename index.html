@@ -1,62 +1,73 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/thumb.svg" />
-  <script type="module" defer src="/src/main.js"></script>
-  <title>Rock Paper Scissors</title>
-</head>
-<body>
-  <!-- Header-Bereich -->
-  <header>
-    <h1>Rock Paper Scissors</h1>
-    <div>
-      <span>Score</span>
-      <span id="score">0</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/thumb.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" defer src="/src/main.js"></script>
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body class="bg-gray-100 text-gray-800 font-metalmania min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 bg-gray-800 text-white shadow-md">
+      <h1 class="text-4xl font-bold">Rock Paper Scissors</h1>
+      <div class="text-2xl">
+        <span>Score:</span>
+        <span id="score" class="font-bold text-green-400">0</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex flex-col items-center justify-center flex-grow space-y-8">
+      <!-- Start Screen -->
+      <div id="startscreen" class="text-center">
+        <h1 class="text-6xl font-bold">Rock</h1>
+        <h2 class="text-5xl font-bold">Paper</h2>
+        <h3 class="text-4xl font-bold">Scissors</h3>
+        <button id="startbutton" class="mt-6 px-6 py-3 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
+          Start Game
+        </button>
+      </div>
+
+      <!-- Buttons -->
+      <div id="game" class="relative w-64 h-64 flex justify-center items-center">
+        <button data-choice="paper" class="absolute top-0 left-1/2 transform -translate-x-1/2 border-4 border-blue-500 rounded-full p-4 hover:scale-110 transition">
+          <img src="./images/paper.svg" alt="Paper" class="w-16 h-16">
+        </button>
+        <button data-choice="rock" class="absolute bottom-0 left-0 border-4 border-green-500 rounded-full p-4 hover:scale-110 transition">
+          <img src="./images/rock.svg" alt="Rock" class="w-16 h-16">
+        </button>
+        <button data-choice="scissors" class="absolute bottom-0 right-0 border-4 border-red-500 rounded-full p-4 hover:scale-110 transition">
+          <img src="./images/scissors.svg" alt="Scissors" class="w-16 h-16">
+        </button>
+      </div>
+    </main>
+
+    <!-- Rules -->
+    <div id="rules" class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 bg-white shadow-lg rounded w-96">
+      <h2 class="text-2xl font-bold mb-4">Rules</h2>
+      <p class="text-gray-600">Rock Paper Scissors is a game that is played between two players...</p>
+      <img src="./images/close.svg" alt="Close" id="closebutton" class="absolute top-4 right-4 w-8 h-8 cursor-pointer">
     </div>
-  </header>
 
-  <!-- Hauptbereich mit Buttons -->
-  <main>
-    <button data-choice="paper">
-      <img src="./images/paper.svg" alt="Paper" />
-    </button>
-    <button data-choice="scissors">
-      <img src="./images/scissors.svg" alt="Scissors" />
-    </button>
-    <button data-choice="rock">
-      <img src="./images/rock.svg" alt="Rock" />
-    </button>
-  </main>
-
-  <!-- Startbildschirm -->
-  <div id="startscreen">
-    <h1>Rock</h1>
-    <h2>Paper</h2>
-    <h3>Scissors</h3>
-    <button id="startbutton">Start Game</button>
-  </div>
-
-  <!-- Regeln -->
-  <div id="rules">
-    <h2>Rules</h2>
-    <p>Rock Paper Scissors is a game that is played between two players...</p>
-    <img src="./images/close.svg" alt="Close" id="closebutton" />
-  </div>
-
-  <!-- Ergebnisanzeige -->
-  <div id="results">
-    <h3 id="result">You win</h3>
-    <div>
-      <p>You chose:</p>
-      <div id="userchoice"></div>
+    <!-- Results -->
+    <div id="results" class="hidden flex flex-col items-center justify-center space-y-4">
+      <h3 id="result" class="text-3xl font-bold text-green-500">You win</h3>
+      <div class="flex items-center space-x-4">
+        <div>
+          <p class="font-bold">You chose:</p>
+          <div id="userchoice" class="w-16 h-16 border border-gray-400 rounded-full"></div>
+        </div>
+        <div>
+          <p class="font-bold">Computer chose:</p>
+          <div id="computerchoice" class="w-16 h-16 border border-gray-400 rounded-full"></div>
+        </div>
+      </div>
+      <button id="playagain" class="px-6 py-3 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
+        Play Again
+      </button>
     </div>
-    <div>
-      <p>Computer chose:</p>
-      <div id="computerchoice"></div>
-    </div>
-    <button id="playagain">Play Again</button>
-  </div>
-</body>
+  </body>
 </html>
+

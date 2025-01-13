@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Metalmania';
+  src: url('/fonts/Metalmania-Regular.ttf') format('truetype');
+}
